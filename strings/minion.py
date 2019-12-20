@@ -29,13 +29,38 @@ Constraints:
 Output Format:
 Print one line: the name of the winner and their score separated by a space.
 If the game is a draw, print Draw.
+
+Note :
+Vowels are only defined as AEIOU. In this problem, Y is not considered a vowel.
 """
 
 
 def minion_game(string):
-    pass
+    vowels = 'AEIOU'
+    kevin = sum(len(string) - i for i in range(len(string)) if string[i] in vowels)
+    stuart = sum(len(string) - i for i in range(len(string)) if string[i] not in vowels)
+    """for i in range(len(string)):
+        if string[i] in vowels:
+            kevin += len(string) - i
+        else:
+            stuart += len(string) - i"""
+    if kevin > stuart:
+        print('%s %d' % ('Kevin', kevin))
+    elif kevin < stuart:
+        print('%s %d' % ('Stuart', stuart))
+    elif kevin == stuart:
+        print('Draw')
 
 
 if __name__ == '__main__':
-    s = input()
-    minion_game(s)
+    s = input('please, enter the word: ').strip()
+    if len(s) == 0:
+        print('no input data!')
+    else:
+        if s.isalpha():
+            for i in range(len(s)):
+                if s[i].islower():
+                    s = s.replace(s[i], s[i].upper())
+            minion_game(s)
+        else:
+            print('incorrect input!')

@@ -28,9 +28,23 @@ Print n/k lines where each line i contains string ui.
 
 
 def merge_the_tools(string, k):
-    pass
+    n = len(string)
+    if n == k * k:
+        for i in range(0, n, k):
+            res = []
+            for j in string[i:i + k]:
+                if j in res:
+                    continue
+                else:
+                    res.append(j)
+            print(''.join(res))
+    else:
+        print('incorrect input data!')
 
 
 if __name__ == '__main__':
-    string, k = input(), int(input())
-    merge_the_tools(string, k)
+    try:
+        string, k = input('please, enter a line: '), int(input('please, enter a number: '))
+        merge_the_tools(string, k)
+    except ValueError:
+        print('it is not a number!')

@@ -29,16 +29,20 @@ import sys
 
 # Complete the solve function below.
 def solve(s):
-    pass
+    """l = []
+    for i in s.split():
+        l.append(i.capitalize())
+    return ' '.join(l)"""
+    # return ' '.join([i.capitalize() for i in s])
+    for i in s.split():
+        s = s.replace(i, i.capitalize())
+    return s
 
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    s = input()
-
-    result = solve(s)
-
-    fptr.write(result + '\n')
-
-    fptr.close()
+    s = input('please, enter your first and last names: ')
+    if len(s) == 0:
+        print('no input data!')
+    else:
+        result = solve(s)
+        print(result)

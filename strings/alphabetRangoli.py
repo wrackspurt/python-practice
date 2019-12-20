@@ -15,11 +15,35 @@ Output Format:
 Print the alphabet rangoli in the format explained above.
 """
 
+# import string
+
 
 def print_rangoli(size):
-    pass
+    # 1st way
+    alph = 'a'
+    for i in range(98, 123):
+        alph += chr(i)
+    # 2nd way
+    # alph = 'abcdefghijklmnopqrstuvwxyz'
+    # 3rd way
+    # alph = string.ascii_lowercase
+    line = alph[0:size]
+    for i in range(size-1, -size, -1):
+        j = abs(i)
+        print('-' * 2 * j + '-'.join(line[n:j:-1] + line[j:n]) + '-' * 2 * j)
 
 
 if __name__ == '__main__':
-    n = int(input())
-    print_rangoli(n)
+    try:
+        n = int(input('please, enter the number: '))
+        if n < 0:
+            print('the number is not whole!')
+        elif n == 0:
+            print("it's a zero!")
+        elif n >= 27:
+            print('the number is too big!')
+        else:
+            print_rangoli(n)
+    except ValueError:
+        print("it's not an integer!")
+
