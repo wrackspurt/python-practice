@@ -35,7 +35,7 @@ def solve(s):
     return ' '.join(l)"""
     # return ' '.join([i.capitalize() for i in s])
     for i in s.split():
-        s = s.replace(i, i.capitalize())
+        s = s.replace(i, i.capitalize(), 1)
     return s
 
 
