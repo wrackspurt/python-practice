@@ -29,7 +29,7 @@ Print n/k lines where each line i contains string ui.
 
 def merge_the_tools(string, k):
     n = len(string)
-    if n == k * k:
+    if n % k == 0:
         for i in range(0, n, k):
             res = []
             for j in string[i:i + k]:
