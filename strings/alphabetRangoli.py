@@ -36,12 +36,8 @@ def print_rangoli(size):
 if __name__ == '__main__':
     try:
         n = int(input('please, enter the number: '))
-        if n < 0:
-            print('the number is not whole!')
-        elif n == 0:
-            print("it's a zero!")
-        elif n >= 27:
-            print('the number is too big!')
+        if n <= 0 or n >= 27:
+            print('incorrect input')
         else:
             print_rangoli(n)
     except ValueError:
