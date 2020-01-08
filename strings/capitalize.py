@@ -32,11 +32,12 @@ def solve(s):
     """l = []
     for i in s.split():
         l.append(i.capitalize())
-    return ' '.join(l)"""
-    # return ' '.join([i.capitalize() for i in s])
+    return ' '.join(l)
+    return ' '.join([i.capitalize() for i in s])
     for i in s.split():
         s = s.replace(i, i.capitalize(), 1)
-    return s
+    return s"""
+    return ' '.join([l[0].upper() + l[1:] for l in s.split()])
 
 
 if __name__ == '__main__':
