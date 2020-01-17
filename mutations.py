@@ -27,30 +27,29 @@ if __name__ == '__main__':
     try:
         m = int(input('please, enter the number of elements in set A: '))
         a = set(int(i) for i in input('please, enter the elements of set A: ').split())
-        n = int(input('please, enter the number of other sets: '))
         if len(a) == m:
-            for _ in range(n):
+            for _ in range(int(input('please, enter the number of other sets: '))):
                 operation, *length = input('please, enter the operation name and the length of the set: ').split()
-                if operation == 'update':
-                    update_set = set(map(int, input('please, enter the elements of the set: ').split()))
-                    a.update(update_set)
-                    if len(update_set) != int(length[0]):
-                        print('something went wrong')
-                elif operation == 'intersection_update':
-                    intersection_update_set = set(map(int, input('please, enter the elements of the set: ').split()))
-                    a.intersection_update(intersection_update_set)
-                    if len(intersection_update_set) != int(length[0]):
-                        print('something went wrong')
-                elif operation == 'difference_update':
-                    difference_update_set = set(map(int, input('please, enter the elements of the set: ').split()))
-                    a.difference_update(difference_update_set)
-                    if len(difference_update_set) != int(length[0]):
-                        print('something went wrong')
-                elif operation == 'symmetric_difference_update':
-                    symm_diff_set = set(map(int, input('please, enter the elements of the set: ').split()))
-                    a.symmetric_difference_update(symm_diff_set)
-                    if len(symm_diff_set) != int(length[0]):
-                        print('something went wrong')
+                # 1
+                """commands = {
+                    'update': "a.update(set(map(int, input('please, enter the elements of the set: ').split())))",
+                    'intersection_update': "a.intersection_update(set(map(int, input('please, enter the elements of the set: ').split())))",
+                    'difference_update': "a.difference_update(set(map(int, input('please, enter the elements of the set: ').split())))",
+                    'symmetric_difference_update': "a.symmetric_difference_update(set(map(int, input('please, enter the elements of the set: ').split())))"}
+                try:
+                    exec(commands[operation])
+                except KeyError:
+                    print('something went wrong')"""
+                # 2
+                try:
+                    eval('a.{0}({1})'.format(operation,
+                                             set(map(int, input('please, enter the elements of the set: ').split()))))
+                except AttributeError:
+                    print('something went wrong')
+                    exit(-1)
+        else:
+            print('incorrect input')
+            exit(-1)
         print(sum(a))
     except ValueError:
         print('wrong input')
