@@ -1,4 +1,4 @@
-# Set Mutations
+# Set Mutations (solution 1)
 """Task
 You are given a set A and N number of other sets. These N number of sets have to perform some specific mutation
 operations on set A.
@@ -30,26 +30,14 @@ if __name__ == '__main__':
         if len(a) == m:
             for _ in range(int(input('please, enter the number of other sets: '))):
                 operation, *length = input('please, enter the operation name and the length of the set: ').split()
-                # 1
-                """commands = {
-                    'update': "a.update(set(map(int, input('please, enter the elements of the set: ').split())))",
-                    'intersection_update': "a.intersection_update(set(map(int, input('please, enter the elements of the set: ').split())))",
-                    'difference_update': "a.difference_update(set(map(int, input('please, enter the elements of the set: ').split())))",
-                    'symmetric_difference_update': "a.symmetric_difference_update(set(map(int, input('please, enter the elements of the set: ').split())))"}
-                try:
-                    exec(commands[operation])
-                except KeyError:
-                    print('something went wrong')"""
-                # 2
-                try:
+                if operation in ('update', 'intersection_update', 'difference_update', 'symmetric_difference_update'):
                     eval('a.{0}({1})'.format(operation,
                                              set(map(int, input('please, enter the elements of the set: ').split()))))
-                except AttributeError:
-                    print('something went wrong')
+                else:
+                    print('wrong operation')
                     exit(-1)
         else:
             print('incorrect input')
-            exit(-1)
         print(sum(a))
     except ValueError:
         print('wrong input')
