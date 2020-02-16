@@ -21,7 +21,7 @@ if __name__ == '__main__':
     s, k = input().split('enter the string and the integer value: ')
     try:
         if 0 < int(k) <= len(s):
-            for l in list(combinations_with_replacement(sorted(s.upper()), int(k))):
+            for l in combinations_with_replacement(sorted(s), int(k)):
                 print(*l, sep='')
         else:
             print('wrong integer value')

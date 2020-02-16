@@ -22,7 +22,7 @@ if __name__ == '__main__':
     try:
         if 0 < int(k) <= len(s):
             for i in range(1, int(k) + 1):
-                for l in list(combinations(sorted(s.upper()), i)):
+                for l in combinations(sorted(s), i):
                     print(*l, sep='')
         else:
             print('incorrect integer value')

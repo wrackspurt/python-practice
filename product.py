@@ -21,5 +21,5 @@ from itertools import product
 
 if __name__ == '__main__':
     a, b = set(map(int, input().split())), set(map(int, input().split()))
-    for l in list(product(a, b)):
+    for l in product(a, b):
         print(l, end=' ')

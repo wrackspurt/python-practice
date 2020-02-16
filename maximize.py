@@ -41,7 +41,7 @@ if __name__ == '__main__':
                     res.append(s % m)
                 s = 0
             print(max(res))"""
-            print(max(list(map(lambda x: sum(i ** 2 for i in x) % m, list(product(*n))))))
+            print(max(map(lambda x: sum(i ** 2 for i in x) % m, product(*n))))
         else:
             print('incorrect input')
     except ValueError:
