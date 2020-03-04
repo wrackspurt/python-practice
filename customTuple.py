@@ -30,8 +30,9 @@ class CustomTuple(Sequence, Hashable):
 
     def count(self, x: Any) -> int:
         c = 0
-        if x in self.data:
-            c += 1
+        for i in range(0, len(self.data)):
+            if x == self.data[i]:
+                c += 1
         return c
 
     def index(self, x: Any, start: int = ..., end: int = ...) -> int:
