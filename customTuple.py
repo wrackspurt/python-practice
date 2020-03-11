@@ -26,7 +26,13 @@ class CustomTuple(Sequence, Hashable):
         return f'{self.data}'
 
     def __hash__(self):
-        return super().__hash__()
+        lst = list(self.data)
+        for i in range(0, len(lst)):
+            if type(lst[i]) == list or type(lst[i]) == set:
+                lst[i] = tuple(lst[i])
+            elif type(lst[i]) == dict:
+                lst[i] = tuple(lst[i].items())
+        return hash(tuple(lst))
 
     def count(self, x: Any) -> int:
         c = 0
