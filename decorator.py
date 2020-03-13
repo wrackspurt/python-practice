@@ -14,7 +14,7 @@ def caching(use_cache=True):
 
         def cache_function(*data, **kwdata):
             if use_cache is True:
-                new_data = make_hashable(data, kwdata)
+                new_data = make_hashable(*data, **kwdata)
                 if new_data not in cache:
                     cache[new_data] = f(*data, **kwdata)
                 return cache[new_data]
