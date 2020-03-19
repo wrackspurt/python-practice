@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
     submenu = tree.xpath(MENU + '/text()')
 
-    print(f'привет! вот категории товаров интернет-магазина {URL[11:25]}: ')
+    print(f'привет! вот категории товаров интернет-магазина {URL}: ')
     for i in range(0, len(submenu)):
         print(i + 1, '-', submenu[i])
 
